@@ -2,6 +2,7 @@ require 'sinatra/base'
 
 class Battle < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super_secret'
 
   get '/' do
     erb :index
@@ -9,7 +10,7 @@ class Battle < Sinatra::Base
 
   post '/names' do
   	session[:player_1_name] = params[:player_1_name]
-  	session[:player_2_name]= params[:player_2_name]
+  	session[:player_2_name] = params[:player_2_name]
   	p params
   	redirect '/play'
   end

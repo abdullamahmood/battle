@@ -1,9 +1,13 @@
 <h2><%= @game.player_1.name %> vs. <%= @game.player_2.name %></h2>
+	<% if @game.player_2.hit_points == 0 || @game.player_1.hit_points == 0 %>
+		<h1> <%= @game.current_turn.name %> loses! </h1>
+	<% else %>
+		<h2>The current player is <%= @game.current_turn.name %></h2>
+	<% end %>
 
-<h1>The current player is <%= @game.current_turn.name %></h1>
-
-<h3><%= @game.player_2.name %>: <%= @game.player_2.hit_points %> HP</h3>
 <h3><%= @game.player_1.name %>: <%= @game.player_1.hit_points %> HP</h3>
+<h3><%= @game.player_2.name %>: <%= @game.player_2.hit_points %> HP</h3>
+
 
 <form action="/attack">
 	<input type="submit" value="Attack">

@@ -1,3 +1,9 @@
 <%= @game.player_2.name %> has been hit by <%= @game.player_1.name %>!
 
 <h3> <%= @game.player_2.name %>: <%= @game.player_2.hit_points %> HP</h3>
+<h3> <%= @game.player_1.name %>: <%= @game.player_1.hit_points %> HP</h3>
+
+<form action="/play">
+	<input type="submit" value="Switch turns">
+</form>
+

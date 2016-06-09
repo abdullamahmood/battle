@@ -22,13 +22,8 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    if @game.round
-    @game.round = false
-    @game.attack(@game.player_2)
-	else 
-	@game.round = true 
-	@game.attack(@game.player_1)
-	end
+    @game.attack
+    @game.switch_turns
 
     erb :attack
   end

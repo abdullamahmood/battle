@@ -6,5 +6,14 @@ feature "Switching turns" do
 		click_button "Attack"
 		click_button "Switch turns"
 		expect(page).to have_content "Anna: 100 HP"
-	end 
+	end
+
+	scenario "display the name of the current player" do
+		sign_in_and_play
+		click_button "Attack"
+		click_button "Switch turns"
+		expect(page).to have_content "The current player is Abdulla"
+	end
+
+
 end
